@@ -1,0 +1,50 @@
+<div class="jumbotron text-center">
+  <h1>My First Bootstrap Page</h1>
+  <p>Resize this responsive page to see the effect!</p> 
+</div>
+
+<div class="container">
+  <div class="row">
+  <div class="col-sm-4" *ngFor="let video of fetchedVideos">
+   
+      <div class="card">
+        <div class="card-body">
+          <h4 class="card-title">{{video.title }}</h4>
+          <p class="card-text">
+            
+            <iframe width="310" height="315" [src]="sanitizer.bypassSecurityTrustResourceUrl(video.link)" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> 
+            {{video.description }}.</p>
+          
+      
+      </div>
+    </div>
+  </div>
+  </div>
+
+
+  <div class="row">
+
+    <h2>Photo Section</h2><br>
+  </div>
+  <div class="row">
+      <div class="col-sm-4" *ngFor="let photo of fetchedPhotos">
+       
+          <div class="card">
+            <div class="card-body">
+           
+              <p class="card-text">
+                <img src="../assets/{{photo.photolink }}.jpg" height="200" width="300">
+               
+                {{photo.description }}
+              </p>
+              
+            </div>
+          </div>
+        </div>
+      </div>
+      
+</div>
+
+
+
+<router-outlet></router-outlet>
